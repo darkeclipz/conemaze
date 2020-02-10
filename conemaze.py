@@ -104,19 +104,33 @@ We traverse those options with a recursive backtrack algorithm.
 
 path = [(0, 0), (1, 1)]
 def get_player_pos(player):
+    """
+    Get the vertex id of the given player. Which is found by traversing
+    the path backward until the player is found. Because both player are
+    in the initial path, a result is guaranteed.
+    """
     for v, p in path[::-1]:
         if p == player:
             return v
+
+
 def other_player(player):
+    """
+    Returns the other player id.
+    """
     if player == 0: return 1
     return 0
 
 
 solution_id = 0
 def save_solution():
+    """
+    Save the solution in a file.
+    """
     global path, solution_id
-    f = open('solution_{}.md'.format(solution_id), 'w')
+    f = open('solutions/solution_{}.md'.format(solution_id), 'w')
     f.write('# Solution {}\n\n'.format(solution_id+1))
+    f.write('![img](problem.png)\n\n')
     for v, p in path:
         f.write(' * Player {} move to {}\n'.format(p+1, v+1))
     f.close()
@@ -145,6 +159,9 @@ backtrack(0, 0)
 Due to circular references it is possible to walk through an infite loop. This will give a max recursion depth error.
 The solution to this is to keep track of the visited vertices, and if we visit the same one again, then we know
 we are in a loop, and has already been traversed.
+
+Attempt 1: Keeping track of the visited vertex position gives an error, because there are 2 players, duh.
+Attempt 2: Keeping track of the the visited (vertex, player) combination doesn't generate any solutions?
 """
 
 # TODO: Fix that
