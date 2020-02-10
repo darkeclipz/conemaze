@@ -1,6 +1,7 @@
 # Solution 11
 
-[img](../problem.png)
+![img](solutions/problem.png)
+
  * Player 1 move to 1
  * Player 2 move to 2
  * Player 1 move to 5
