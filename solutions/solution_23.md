@@ -1,6 +1,6 @@
 # Solution 24
 
-![img](solutions/problem.png)
+![img](problem.png)
 
  * Player 1 move to 1
  * Player 2 move to 2

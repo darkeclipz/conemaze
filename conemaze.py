@@ -130,7 +130,7 @@ def save_solution():
     global path, solution_id
     f = open('solutions/solution_{}.md'.format(solution_id), 'w')
     f.write('# Solution {}\n\n'.format(solution_id+1))
-    f.write('![img](solutions/problem.png)\n\n')
+    f.write('![img](problem.png)\n\n')
     for v, p in path:
         f.write(' * Player {} move to {}\n'.format(p+1, v+1))
     f.close()
