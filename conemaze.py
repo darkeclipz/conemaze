@@ -2,7 +2,7 @@
 The problem is modeled as a directed cyclic graph.  The graph is stored in an adjacency list like structure.
 
 The colors are encoded from 0..4, and is stored in a dictionary. 
-A list where the index is the vertex index contains all the edges to other vertices. An edge is a 
+A list, where the index is the vertex index, contains all the edges to other vertices. An edge is a 
 tuple of (vertex id, edge color). Another list colors where the index is also the vertex index, contains
 the color of that vertex.
 """ 
@@ -13,7 +13,6 @@ color = {
     'black': 3, 
     'blue': 4
 }
-color_inv = {v:k for k, v in color.items()}
 vertices_count = 23
 finish = vertices_count - 1
 edges = [
@@ -69,8 +68,7 @@ colors = [
 ]
 
 print('color', color)
-print('invcolor', color_inv)
-print('verticesCount', vertices_count)
+print('vertices_count', vertices_count)
 print('edges', edges)
 print('colors', colors)
 
@@ -98,6 +96,10 @@ This gives the following options:
         ...
         Edge n
     Player B
+        Edge 1
+        Edge 2
+        ...
+        Edge n
 
 We traverse those options with a recursive backtrack algorithm. 
 """
@@ -156,7 +158,7 @@ def backtrack(current_vertex, current_player):
 backtrack(0, 0)
 
 """
-Due to circular references it is possible to walk through an infite loop. This will give a max recursion depth error.
+Due to circular references it is possible to walk through an infite loop? This will give a max recursion depth error.
 The solution to this is to keep track of the visited vertices, and if we visit the same one again, then we know
 we are in a loop, and has already been traversed.
 
